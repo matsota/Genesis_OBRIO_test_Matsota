@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Alert WithOK-->
+        <scene sceneID="mUO-wD-pgI">
+            <objects>
+                <viewController storyboardIdentifier="AlertWithOK" id="GYh-ko-w7A" customClass="AlertWithOK" customModule="Unionizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="khK-FL-mAv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="top" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ugz-AX-qJ9">
+                                <rect key="frame" x="0.0" y="-6" width="414" height="918"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="64" maxX="24" maxY="0.0"/>
+                                <connections>
+                                    <action selector="dismissAction:" destination="GYh-ko-w7A" eventType="touchUpInside" id="xjN-Hl-Tkp"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="3Ez-gm-Z4Q">
+                                <rect key="frame" x="375" y="60" width="25" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Ez-gm-Z4Q" secondAttribute="height" multiplier="1:1" id="Ckd-l2-LG0"/>
+                                    <constraint firstAttribute="height" constant="25" id="NKW-xB-Haf"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n12-Up-VF7">
+                                <rect key="frame" x="52" y="447" width="310.5" height="12"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsb-Mw-OTT">
+                                        <rect key="frame" x="0.0" y="4" width="310.5" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XTD-zV-840">
+                                        <rect key="frame" x="0.0" y="8" width="310.5" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XTD-zV-840" secondAttribute="trailing" id="6yp-nb-Ege"/>
+                                    <constraint firstItem="XTD-zV-840" firstAttribute="top" secondItem="qsb-Mw-OTT" secondAttribute="bottom" constant="4" id="QHa-jm-fTd"/>
+                                    <constraint firstAttribute="bottom" secondItem="XTD-zV-840" secondAttribute="bottom" constant="4" id="Vwb-Lb-YmJ"/>
+                                    <constraint firstItem="qsb-Mw-OTT" firstAttribute="leading" secondItem="n12-Up-VF7" secondAttribute="leading" id="Z5K-8X-UpL"/>
+                                    <constraint firstItem="qsb-Mw-OTT" firstAttribute="top" secondItem="n12-Up-VF7" secondAttribute="top" constant="4" id="bcl-nq-zJV"/>
+                                    <constraint firstItem="XTD-zV-840" firstAttribute="leading" secondItem="n12-Up-VF7" secondAttribute="leading" id="lDC-oe-LCG"/>
+                                    <constraint firstAttribute="trailing" secondItem="qsb-Mw-OTT" secondAttribute="trailing" id="pco-Wd-1gV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kbQ-PX-OWS"/>
+                        <constraints>
+                            <constraint firstItem="n12-Up-VF7" firstAttribute="centerY" secondItem="kbQ-PX-OWS" secondAttribute="centerY" id="GYK-xh-R6Q"/>
+                            <constraint firstItem="n12-Up-VF7" firstAttribute="width" secondItem="kbQ-PX-OWS" secondAttribute="width" multiplier="0.75" id="JAj-NO-qcg"/>
+                            <constraint firstItem="kbQ-PX-OWS" firstAttribute="trailing" secondItem="3Ez-gm-Z4Q" secondAttribute="trailing" constant="14" id="Olt-MW-kYf"/>
+                            <constraint firstItem="kbQ-PX-OWS" firstAttribute="bottom" secondItem="Ugz-AX-qJ9" secondAttribute="bottom" constant="-50" id="U3U-Mm-PTm"/>
+                            <constraint firstItem="Ugz-AX-qJ9" firstAttribute="top" secondItem="kbQ-PX-OWS" secondAttribute="top" constant="-50" id="VoH-dN-Zbr"/>
+                            <constraint firstItem="Ugz-AX-qJ9" firstAttribute="leading" secondItem="kbQ-PX-OWS" secondAttribute="leading" id="XdP-xe-3wu"/>
+                            <constraint firstItem="kbQ-PX-OWS" firstAttribute="trailing" secondItem="Ugz-AX-qJ9" secondAttribute="trailing" id="eBs-Dr-rlV"/>
+                            <constraint firstItem="n12-Up-VF7" firstAttribute="height" relation="lessThanOrEqual" secondItem="kbQ-PX-OWS" secondAttribute="height" multiplier="0.8" id="n51-EQ-I7i"/>
+                            <constraint firstItem="3Ez-gm-Z4Q" firstAttribute="top" secondItem="kbQ-PX-OWS" secondAttribute="top" constant="14" id="qMZ-Rw-BXB"/>
+                            <constraint firstItem="n12-Up-VF7" firstAttribute="centerX" secondItem="kbQ-PX-OWS" secondAttribute="centerX" id="yAa-Kt-2Q9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="alertView" destination="n12-Up-VF7" id="6Og-63-4In"/>
+                        <outlet property="bodyLabel" destination="XTD-zV-840" id="doD-nA-cI4"/>
+                        <outlet property="dismissButton" destination="Ugz-AX-qJ9" id="Pza-Kq-c3g"/>
+                        <outlet property="titleLabel" destination="qsb-Mw-OTT" id="YME-kQ-Py6"/>
+                        <outlet property="xMarkImageView" destination="3Ez-gm-Z4Q" id="Mbv-cI-PPX"/>
+                        <outletCollection property="labelCollection" destination="qsb-Mw-OTT" collectionClass="NSMutableArray" id="WpT-1A-34q"/>
+                        <outletCollection property="labelCollection" destination="XTD-zV-840" collectionClass="NSMutableArray" id="lMT-tw-5e6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zm8-Mt-EIc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-307" y="94"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+    </resources>
+</document>
