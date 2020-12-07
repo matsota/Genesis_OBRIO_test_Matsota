@@ -20,9 +20,11 @@ class MainViewController: UIViewController {
         /// - Initiate
         let alert = AlertConfiguration(alertTitle: "Greetings!", alertBody: "In this app you are able to browse any repository at \ngithub.com\nJust enter any you want and try your luck\nWe already prepared first search for you")
         UIRouter.instance.presentAlert(self, configure: alert) {
-            UserDefaults.standard.set("swift", forKey: UserDefaults.Key.searchingText)
-            let request = SearchRequest(text: "swift", page: 0)
-            self.loadRepositories(with: request)
+            OperationQueue.main.addOperation {
+                UserDefaults.standard.set(self.startSearchFrom, forKey: UserDefaults.Key.searchingText)
+                let request = SearchRequest(text: self.startSearchFrom, page: 0)
+                self.loadRepositories(with: request)
+            }
         }
         
         /// - Notification
@@ -32,6 +34,7 @@ class MainViewController: UIViewController {
     //MARK: - Private Implementation
     private var population = [SearchResponse.Item]()
     private var network: NetworkManagment?
+    private let startSearchFrom = "swift"
     private var totalRepositories = Int()
     private var searchText: String?
     
@@ -63,13 +66,15 @@ extension MainViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = nil
         if !population.isEmpty,
-           UserDefaults.standard.string(forKey: UserDefaults.Key.searchingText) != "swift"  {
-            UserDefaults.standard.set("swift", forKey: UserDefaults.Key.searchingText)
+           UserDefaults.standard.string(forKey: UserDefaults.Key.searchingText) != startSearchFrom  {
             tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
             population.removeAll()
             tableView.reloadSections([0], with: .fade)
-            let request = SearchRequest(text: "swift", page: 0)
-            loadRepositories(with: request)
+            OperationQueue.main.addOperation {
+                UserDefaults.standard.set(self.startSearchFrom, forKey: UserDefaults.Key.searchingText)
+                let request = SearchRequest(text: self.startSearchFrom, page: 0)
+                self.loadRepositories(with: request)
+            }
         }
     }
     
@@ -181,7 +186,7 @@ private extension MainViewController {
         guard let text = UserDefaults.standard.string(forKey: UserDefaults.Key.searchingText) else {
             let alert = AlertConfiguration(alertTitle: "Some error occured", alertBody: "We lost you browsing text")
             UIRouter.instance.presentAlert(self, configure: alert) {
-                let request = SearchRequest(text: "swift", page: 0)
+                let request = SearchRequest(text: self.startSearchFrom, page: 0)
                 self.loadRepositories(with: request)
             }
             return
